@@ -46,8 +46,8 @@ public class TwitService {
         return new TwitDto(
                 twit.getId(),
                 twit.getOwner().getLogin(),
-                twit.getTags(),
                 twit.getMessage(),
+                twit.getTags(),
                 twit.getCreatedAt()
         );
     }
