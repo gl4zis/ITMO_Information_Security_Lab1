@@ -1,5 +1,6 @@
 package ru.itmo.infsec.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,7 +22,7 @@ public class TwitController {
     }
 
     @PostMapping("/twit")
-    public void twit(@RequestBody TwitRequest request, @AuthenticationPrincipal UserDetails user) {
+    public void twit(@Valid @RequestBody TwitRequest request, @AuthenticationPrincipal UserDetails user) {
         twitService.addTwit(request, user.getUsername());
     }
 }
