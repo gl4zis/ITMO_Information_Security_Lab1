@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.5.7'
     id 'io.spring.dependency-management' version '1.1.7'
+    id 'com.github.spotbugs' version '6.0.17'
 }
 
 group = 'ru.itmo.infsec'
@@ -38,4 +39,16 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
+}
+
+spotbugs {
+    toolVersion = '4.9.7'
+    ignoreFailures = false
+}
+
+spotbugsMain {
+    reports {
+        html.enabled(true)
+        xml.enabled(false)
+    }
 }
