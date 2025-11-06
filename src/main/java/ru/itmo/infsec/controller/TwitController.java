@@ -1,5 +1,6 @@
 package ru.itmo.infsec.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
@@ -11,11 +12,8 @@ import ru.itmo.infsec.service.TwitService;
 @RequestMapping("/api")
 public class TwitController {
 
-    private final TwitService twitService;
-
-    public TwitController(TwitService twitService) {
-        this.twitService = twitService;
-    }
+    @Autowired
+    private TwitService twitService;
 
     @GetMapping("/data")
     public TwitsResponse getTwits() {

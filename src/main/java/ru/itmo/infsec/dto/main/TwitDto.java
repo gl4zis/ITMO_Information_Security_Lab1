@@ -10,4 +10,20 @@ public record TwitDto(
         Set<String> tags,
         String message,
         Instant createdAt
-) { }
+) {
+
+    public TwitDto {
+        mentions = Set.copyOf(mentions);
+        tags = Set.copyOf(tags);
+    }
+
+    @Override
+    public Set<String> mentions() {
+        return Set.copyOf(mentions);
+    }
+
+    @Override
+    public Set<String> tags() {
+        return Set.copyOf(tags);
+    }
+}
